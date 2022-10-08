@@ -81,9 +81,8 @@
 
 <script>
     var ids = []
-    for (var i = 0; i <= 24; i++) {
+    for (var i = 0; i <= 24; i++)
         ids.push("img" + i)
-    }
 
     var chestCount = 0
     var score = 0
@@ -93,11 +92,10 @@
     function check(position) {
         var imgID = ids[position]
 
-        if (position == treasureLocation) {
+        if (position == treasureLocation)
             document.getElementById(imgID).src = "./images/treasure.jpg"
-        } else {
+        else
             document.getElementById(imgID).src = "./images/sad-face.jpg"
-        }
 
         chestCount++
         score++
