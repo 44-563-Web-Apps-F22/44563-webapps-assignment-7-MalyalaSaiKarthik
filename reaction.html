@@ -27,20 +27,27 @@
     <div class="container">
         <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
         <button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button>
+        <button type="button" class="btn btn-primary" onclick="randomStart()">Random Start</button>
     </div>
     <script>
         var myTime = undefined
-
+        var startCount = 3
         function recordReact() {
             myTime = Date.now()
             console.log(new Date(myTime));
         }
 
+        function randomStart() {
+            startCount = Math.floor(Math.random() * 8) + 2
+            startTime()
+        }
+
         function startTime() {
-            for (let i = 0; i < 4; i++) {
+            myTime = undefined
+            for (let i = 0; i < startCount; i++) {
                 setTimeout(() => {
                     document.getElementById("countdown").innerHTML = "Count: " + i
-                }, (3 - i) * 1000)
+                }, (startCount - i) * 1000)
             }
             setTimeout(() => {
                 if (myTime == undefined)
@@ -49,7 +56,7 @@
                     buttonTime = Date.now()
                     document.getElementById("target").innerHTML = "Time was " + (buttonTime - myTime)
                 }
-            }, 3000)
+            }, startCount * 1000)
         }
     </script>
 
